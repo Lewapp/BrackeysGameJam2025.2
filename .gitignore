@@ -59,12 +59,12 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-BrackeysGameJam2025/BiscuitRisk/Assets/TutorialInfo
-BrackeysGameJam2025/BiscuitRisk/Assets/TutorialInfo.meta
-BrackeysGameJam2025/BiscuitRisk/Temp
-BrackeysGameJam2025/BiscuitRisk/Logs
-BrackeysGameJam2025/BiscuitRisk/obj
-BrackeysGameJam2025/BiscuitRisk/Library
-BrackeysGameJam2025/BiscuitRisk/UserSettings
+BiscuitRisk/Assets/TutorialInfo
+BiscuitRisk/Assets/TutorialInfo.meta
+BiscuitRisk/Temp
+BiscuitRisk/Logs
+BiscuitRisk/obj
+BiscuitRisk/Library
+BiscuitRisk/UserSettings
 Documentation
 _Builds
