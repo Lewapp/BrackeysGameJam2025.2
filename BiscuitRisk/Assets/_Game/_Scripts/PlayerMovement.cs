@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private Camera playerCamera;       // Reference to the player's camera
     #endregion
 
-    #region Unity Event
+    #region Unity Callbacks
     private void Awake()
     {
         if (transform.parent)
