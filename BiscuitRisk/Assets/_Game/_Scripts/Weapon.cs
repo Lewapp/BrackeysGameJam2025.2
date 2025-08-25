@@ -78,7 +78,6 @@ public class Weapon : MonoBehaviour
     [Serializable]
     public class WeaponStats
     {
-        public int damage;             // Amount of damage each bullet deals
         public float fireRate;         // Minimum time between shots (in seconds)
         public float projectileSpeed;  // Speed at which the bullet travels
     }
