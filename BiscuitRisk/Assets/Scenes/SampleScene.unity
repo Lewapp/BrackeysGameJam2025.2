@@ -580,7 +580,7 @@ MonoBehaviour:
   - {fileID: 1405932768}
   - {fileID: 1483304166}
   spawnAmountRange: {x: 1, y: 2}
-  spawnTimeRange: {x: 2, y: 5}
+  spawnTimeRange: {x: 2, y: 4}
   waveSpawnsLeft: 31
   spawnsPerWave: 20
   spawnsPerWaveIncrease: 1.1
@@ -589,6 +589,7 @@ MonoBehaviour:
   focusThreshold: 1.25
   switchPercentage: 0.3
   maxCandidatesPerCheck: 5
+  list: []
 --- !u!4 &306759820
 Transform:
   m_ObjectHideFlags: 0
@@ -3138,7 +3139,7 @@ PrefabInstance:
       objectReference: {fileID: 1491424900}
     - target: {fileID: 971838558590889366, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_VersionIndex
-      value: 4322
+      value: 4331
       objectReference: {fileID: 0}
     - target: {fileID: 1678024837004699748, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_IsActive
@@ -3150,7 +3151,7 @@ PrefabInstance:
       objectReference: {fileID: 1886251878}
     - target: {fileID: 2469594840208173140, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_VersionIndex
-      value: 7079
+      value: 7088
       objectReference: {fileID: 0}
     - target: {fileID: 2800369240425147923, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_Name

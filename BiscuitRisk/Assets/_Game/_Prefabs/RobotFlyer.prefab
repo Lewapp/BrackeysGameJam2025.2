@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8210987301710761696}
   - component: {fileID: 749385490236161398}
   - component: {fileID: 569833088945897948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RobotFlyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,6 +89,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
   influncePower: 0.05
+  willResetAfterCooldown: 1
+  preIrritationFocus: {fileID: 0}
+  irritationLevel: 0
+  irrtationMultiplier: 0.04
+  irritationCooldownPower: 0.05
+  resetCooldownThreshold: 0.2
 --- !u!114 &8210987301710761696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +126,6 @@ MonoBehaviour:
   shootingDistance: 9
   fireRate: 2
   laserSpeed: 5
-  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!195 &569833088945897948
 NavMeshAgent:
   m_ObjectHideFlags: 0

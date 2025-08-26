@@ -2934,6 +2934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8709cc37812e76498075d3793a3415e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 1005518843099979183}
   bulletPrefab: {fileID: 5216041510369793362, guid: 36b624b2ec86db44ba02179904ee21ef, type: 3}
   spawnPoint: {fileID: 5025260826360277232}
   stats:

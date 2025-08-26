@@ -8,6 +8,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     #region Inspector Variables
+    [SerializeField] private GameObject owner;        // The owner that is using this weapon
     [SerializeField] private GameObject bulletPrefab; // Prefab of the bullet to spawn when shooting
     [SerializeField] private Transform spawnPoint;    // Point from which the bullet will be instantiated
     [SerializeField] private WeaponStats stats;       // Contains stats for the weapon
@@ -60,6 +61,9 @@ public class Weapon : MonoBehaviour
 
         // Instantiate the bullet at the spawn point with correct rotation
         GameObject _bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.LookRotation(_direction));
+        Projectile _projectile = _bullet.GetComponent<Projectile>();
+        if (_projectile)
+            _projectile.sourceObject = owner;
 
         // Apply velocity to the bullet if it has a Rigidbody
         Rigidbody _rb = _bullet.GetComponent<Rigidbody>();

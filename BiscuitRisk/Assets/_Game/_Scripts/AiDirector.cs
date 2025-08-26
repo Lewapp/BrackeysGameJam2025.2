@@ -60,8 +60,17 @@ public class AiDirector : MonoBehaviour
         focusables = new Dictionary<GameObject, FocusableInfo>();
     }
 
+    public List<FocusableInfo> list;
+
     private void Update()
     {
+        list = new List<FocusableInfo>();
+
+        foreach (var u in focusables.Values)
+        {
+            list.Add(u);
+        }
+
         if (spawnPoints.Length <= 0)
             return;
 
@@ -149,6 +158,22 @@ public class AiDirector : MonoBehaviour
     }
 
     /// <summary>
+    /// Reduces the influence value of a given focusable object when an enemy targets it,
+    /// based on the enemy's influence power.
+    /// </summary>
+    private void RemoveInfluence(GameObject _focusedObject, EnemyFocus _enemy)
+    {
+        // Reduce influence on the selected focusable using the enemy's influence power
+        if (_focusedObject != null && focusables.ContainsKey(_focusedObject))
+        {
+            FocusableInfo _info = focusables[_focusedObject];
+            _info.influence -= _info.initialInfluence * _enemy.GetInfluencePower(); // InfluencePower acts as multiplier
+            _info.influence = Mathf.Max(0f, _info.influence);
+            focusables[_focusedObject] = _info; // Write back to dictionary
+        }
+    }
+
+    /// <summary>
     /// Determine which focusable object an enemy should target
     /// </summary>
     public GameObject GetFocus(EnemyFocus _enemy, GameObject _oldFocus)
@@ -181,32 +206,56 @@ public class AiDirector : MonoBehaviour
             float _randomPoint = UnityEngine.Random.Range(0, _totalInfluence);
             float _runningSum = 0f;
 
-            foreach (var _kvp in focusables)
+            foreach (var _focusable in focusables)
             {
-                _runningSum += _kvp.Value.influence;
+                _runningSum += _focusable.Value.influence;
 
                 if (_randomPoint <= _runningSum)
                 {
-                    _keyFocus = _kvp.Key;
+                    _keyFocus = _focusable.Key;
                     break;
                 }
             }
         }
 
-        // Reduce influence on the selected focusable using the enemy's influence power
-        if (_keyFocus != null && focusables.ContainsKey(_keyFocus))
-        {
-            FocusableInfo _info = focusables[_keyFocus];
-            _info.influence -= _info.initialInfluence * _enemy.GetInfluencePower(); // InfluencePower acts as multiplier
-            _info.influence = Mathf.Max(0f, _info.influence);
-            focusables[_keyFocus] = _info; // Write back to dictionary
-        }
+        RemoveInfluence(_keyFocus, _enemy);
 
         // Update the current focus of this enemy
         activeEnemies[_enemy] = _keyFocus;
         RestoreInfluence(_oldFocus, _enemy);
 
         return _keyFocus;
+    }
+
+    /// <summary>
+    /// Attempts to forcefully change an enemy's current focus target to a new desired focusable.
+    /// </summary>
+    public bool ForceChangeFocus(EnemyFocus _enemy, GameObject _desiredFocus)
+    {
+        // Check if the desired focus object is registered as a valid focusable
+        if (!focusables.ContainsKey(_desiredFocus))
+        {
+            Debug.LogWarning($"Attempting to force change focus for {_enemy.name} to an unfocusable object.");
+            return false;
+        }
+
+        // Check if the enemy is registered in the active enemies dictionary
+        if (!activeEnemies.ContainsKey(_enemy))
+        {
+            Debug.LogWarning("Unregistered enemy object attempted to get a focus object.");
+            return false;
+        }
+
+        // Restore influence back to the previous focus object before changing target
+        RestoreInfluence(_enemy.GetFocus().gameObject, _enemy);
+
+        // Assign the new focus target for this enemy
+        activeEnemies[_enemy] = _desiredFocus;
+
+        // Reduce the influence of the newly focused object since it is being targeted
+        RemoveInfluence(_desiredFocus, _enemy);
+
+        return true;
     }
 
     /// <summary>
@@ -239,7 +288,7 @@ public class AiDirector : MonoBehaviour
         timeSinceLastSpawn = 0f;
 
         // Select a random spawn point and a random number of enemies to spawn
-        int _randSpawnPoint = UnityEngine.Random.Range(0, spawnPoints.Length - 1);
+        int _randSpawnPoint = UnityEngine.Random.Range(0, spawnPoints.Length);
         int _randSpawnAmount = UnityEngine.Random.Range(spawnAmountRange.x, spawnAmountRange.y);
 
         // Spawn enemies at the chosen point
