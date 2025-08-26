@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
-  influncePower: 0.2
+  influncePower: 0.05
 --- !u!114 &8210987301710761696
 MonoBehaviour:
   m_ObjectHideFlags: 0

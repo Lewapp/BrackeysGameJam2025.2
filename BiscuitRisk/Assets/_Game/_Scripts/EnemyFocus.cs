@@ -40,7 +40,7 @@ public class EnemyFocus : MonoBehaviour, ITargetSeeker
         if (!focus)
         {
             // Ask the AI Director for a focusable object
-            focus = AiDirector.instance.GetFocus(this)?.transform;
+            focus = AiDirector.instance.GetFocus(this, null)?.transform;
             return;
         }
     }
@@ -55,6 +55,16 @@ public class EnemyFocus : MonoBehaviour, ITargetSeeker
     }
 
     #endregion
+
+    #region Interface Methods
+
+    public void CanSwitchFocus()
+    {
+        // TODO: Use this method to attempt focus switch when attacked
+        // Check if allowed to switch with the AiDirector
+    }
+
+    #endregion 
 
     #region Methods
 
@@ -72,6 +82,11 @@ public class EnemyFocus : MonoBehaviour, ITargetSeeker
     public Transform GetFocus()
     {
         return focus;
+    }
+
+    public void RerollFocus()
+    {
+        focus = AiDirector.instance.GetFocus(this, focus.gameObject)?.transform;
     }
 
     #endregion
