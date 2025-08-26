@@ -712,3 +712,6 @@ MonoBehaviour:
   stats:
     destroyOnCollision: 1
     damage: 20
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 128

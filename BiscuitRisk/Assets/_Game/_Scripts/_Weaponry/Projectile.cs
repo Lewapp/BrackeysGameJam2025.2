@@ -8,11 +8,15 @@ public class Projectile : MonoBehaviour
 {
     #region Inspector Variables
     [SerializeField] private ProjectileStats stats; // Configurable stats for this projectile
+    [SerializeField] private LayerMask ignoreLayer; // Collision Layers to ignore
     #endregion
 
     #region Unity Callbacks
     private void OnCollisionEnter(Collision collision)
     {
+        if ((ignoreLayer.value & (1 << collision.gameObject.layer)) != 0)
+            return;
+
         // Attempt to get IDamageable component from collided object
         if (collision.gameObject.TryGetComponent<IDamageable>(out var _damageable))
         {

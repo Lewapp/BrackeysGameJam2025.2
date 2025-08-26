@@ -30,14 +30,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404045727911164831}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.56098557, y: -0.43045932, z: -0.43045923, w: 0.5609857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.0043306, y: 2.7511182, z: 17.330727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8557921490932709293}
+  - {fileID: 1954032691800883311}
+  - {fileID: 2201385455667709550}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -75}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7289532099204122879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,6 +114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033c65374fc8005418d13a819a755320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftCannon: {fileID: 1954032691800883311}
+  rightCannon: {fileID: 2201385455667709550}
+  laserBullet: {fileID: 8940097753998920163, guid: 2af1934b0c028284aa9431acee23da13, type: 3}
+  shootingDistance: 9
+  fireRate: 2
+  laserSpeed: 5
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!195 &569833088945897948
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -134,6 +143,68 @@ NavMeshAgent:
   m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1 &619352050039919022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2201385455667709550}
+  m_Layer: 0
+  m_Name: LaserSpawnR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2201385455667709550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619352050039919022}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8763571, y: 0.21633959, z: 0.7203865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 757682457884368651}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7950976379395069531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1954032691800883311}
+  m_Layer: 0
+  m_Name: LaserSpawnL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1954032691800883311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950976379395069531}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.8763571, y: 0.21633959, z: 0.7203865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 757682457884368651}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8163162711723921478
 PrefabInstance:
   m_ObjectHideFlags: 0
