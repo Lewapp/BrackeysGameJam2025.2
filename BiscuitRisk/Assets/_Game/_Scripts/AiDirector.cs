@@ -15,35 +15,36 @@ public class AiDirector : MonoBehaviour
     #region Inspector Variables
 
     [Header("Enemy Types")]
-    [SerializeField] private GameObject defaultEnemy;
+    [SerializeField] private GameObject defaultEnemy;               // Default enemy prefab used for spawning
 
     [Header("Initial Spawn Settings")]
-    [SerializeField] private int maxSpawns = 30;
-    [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private Vector2Int spawnAmountRange;
-    [SerializeField] private Vector2 spawnTimeRange;
+    [SerializeField] private int maxSpawns = 30;                    // Maximum number of enemies allowed in the scene
+    [SerializeField] private Transform[] spawnPoints;               // Spawn points where enemies can appear
+    [SerializeField] private Vector2 spawnAmountRange;           // Randomised range for number of enemies per spawn
+    [SerializeField] private Vector2 spawnTimeRange;                // Randomised range for time between spawns
 
     [Header("Wave Settings")]
-    [SerializeField] private float waveSpawnsLeft;
-    [SerializeField] private float spawnsPerWave;
-    [SerializeField] private float spawnsPerWaveIncrease;
-    [SerializeField] private float spawnTimeDecrease;
+    [SerializeField] private float currentWave = 1f;                // The current wave we are at
+    [SerializeField] private int waveSpawnsLeft;                  // Remaining spawns in the current wave
+    [SerializeField] private float spawnsPerWave;                   // Number of enemies spawned per wave
+    [SerializeField] private float spawnsPerWaveIncrease;           // Increment added to spawns per wave after each wave
+    [SerializeField] private float spawnTimeDecrease;               // Decrease applied to spawn time each wave (speeds up spawning)
 
     [Header("Refocus Settings")]
-    [SerializeField] private float checkDelay = 5.0f;
-    [SerializeField] private float focusThreshold = 1.25f;
-    [SerializeField] private float switchPercentage = 0.3f;
-    [SerializeField] private int maxCandidatesPerCheck = 5;
+    [SerializeField] private float checkDelay = 5.0f;               // Time between focus balancing checks
+    [SerializeField] private float focusThreshold = 1.25f;          // Threshold for deciding if focus should be redistributed
+    [SerializeField] private float switchPercentage = 0.3f;         // Percentage chance for an enemy to switch focus during balancing
+    [SerializeField] private int maxCandidatesPerCheck = 5;         // Maximum number of candidates considered per balancing check
 
     #endregion
 
     #region Private Variables
-    private Dictionary<EnemyFocus, GameObject> activeEnemies;    // Dictionary of active enemies and the object they are currently focusing on
-    private Dictionary<GameObject, FocusableInfo> focusables;    // Dictionary of focusable objects and their influence info
+    private Dictionary<EnemyFocus, GameObject> activeEnemies;       // Maps active enemies to their current focus targets
+    private Dictionary<GameObject, FocusableInfo> focusables;       // Maps focusable objects to their influence data
 
-    private float timeSinceLastSpawn = 0f;
-    private float instanceSpawnTime = 0f;
-    private float timeSinceLastCheck = 0f;
+    private float timeSinceLastSpawn = 0f;                          // Timer since the last enemy spawn
+    private float instanceSpawnTime = 0f;                           // Current randomised spawn interval
+    private float timeSinceLastCheck = 0f;                          // Timer since the last focus balancing check
     #endregion
 
     #region Unity Callbacks
@@ -51,42 +52,33 @@ public class AiDirector : MonoBehaviour
     {
         if (instance && instance != this)
         {
-            Destroy(gameObject); // Ensure only one instance exists
+            Destroy(gameObject); // Destroy duplicate instance (singleton enforcement)
             return;
         }
-        instance = this; // Set the singleton instance
+        instance = this; // Assign singleton instance
 
         activeEnemies = new Dictionary<EnemyFocus, GameObject>();
         focusables = new Dictionary<GameObject, FocusableInfo>();
     }
 
-    public List<FocusableInfo> list;
-
     private void Update()
     {
-        list = new List<FocusableInfo>();
-
-        foreach (var u in focusables.Values)
-        {
-            list.Add(u);
-        }
-
-        if (spawnPoints.Length <= 0)
+        if (spawnPoints.Length <= 0) // Skip if no spawn points defined
             return;
 
-        ManageWave();
+        ManageWave(); // Handle wave spawning logic
     }
 
     private void LateUpdate()
     {
-        if (focusables.Count <= 0)
+        if (focusables.Count <= 0) // Skip if no focusable objects exist
             return;
 
         timeSinceLastCheck += Time.deltaTime;
         if (timeSinceLastCheck >= checkDelay)
         {
             timeSinceLastCheck = 0f;
-            BalanceFocuses();
+            BalanceFocuses(); // Periodically redistribute enemy focus
         }
     }
     #endregion
@@ -269,7 +261,14 @@ public class AiDirector : MonoBehaviour
             // If all active enemies are cleared, the wave is finished
             if (activeEnemies.Count <= 0)
             {
-                // End Wave 
+                // Delay
+
+                // Start wave
+                spawnTimeRange.y *= spawnTimeDecrease;
+                spawnsPerWave *= spawnsPerWaveIncrease;
+                waveSpawnsLeft = (int)spawnsPerWave;
+                currentWave++;
+
             }
 
             return; // Stop processing until the next wave is triggered
@@ -289,7 +288,7 @@ public class AiDirector : MonoBehaviour
 
         // Select a random spawn point and a random number of enemies to spawn
         int _randSpawnPoint = UnityEngine.Random.Range(0, spawnPoints.Length);
-        int _randSpawnAmount = UnityEngine.Random.Range(spawnAmountRange.x, spawnAmountRange.y);
+        int _randSpawnAmount = UnityEngine.Random.Range((int)spawnAmountRange.x, (int)spawnAmountRange.y);
 
         // Spawn enemies at the chosen point
         for (int i = 0; i < _randSpawnAmount; i++)

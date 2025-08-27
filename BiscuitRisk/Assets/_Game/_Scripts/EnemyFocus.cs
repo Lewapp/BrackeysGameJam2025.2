@@ -20,13 +20,13 @@ public class EnemyFocus : MonoBehaviour, ITargetSeeker, IDamageable
     [SerializeField] private Transform focus;        // Current object being focused
     [SerializeField] private float influncePower = 1f; // How strongly this enemy reduces the influence of a focusable
 
-[Header("Irritation Settings")]
-[SerializeField] private bool willResetAfterCooldown = true; // If true, enemy can reset to original focus after irritation cooldown
-[SerializeField] private GameObject preIrritationFocus;      // Stores the enemy's focus before being redirected by irritation
-[SerializeField] private float irritationLevel = 0f;         // Current irritation value (0–1), increases when taking damage
-[SerializeField] private float irrtationMultiplier = 0.02f;  // Multiplier for irritation gained when damaged
-[SerializeField] private float irritationCooldownPower = 0.2f; // Rate at which irritation decreases over time
-[SerializeField] private float resetCooldownThreshold = 0.5f; // Irritation level below which the enemy may reset focus
+    [Header("Irritation Settings")]
+    [SerializeField] private bool willResetAfterCooldown = true; // If true, enemy can reset to original focus after irritation cooldown
+    [SerializeField] private GameObject preIrritationFocus;      // Stores the enemy's focus before being redirected by irritation
+    [SerializeField] private float irritationLevel = 0f;         // Current irritation value (0–1), increases when taking damage
+    [SerializeField] private float irritationMultiplier = 0.02f;  // Multiplier for irritation gained when damaged
+    [SerializeField] private float irritationCooldownPower = 0.2f; // Rate at which irritation decreases over time
+    [SerializeField] private float resetCooldownThreshold = 0.5f; // Irritation level below which the enemy may reset focus
     #endregion
 
     #region Unity Callbacks
@@ -87,7 +87,7 @@ public class EnemyFocus : MonoBehaviour, ITargetSeeker, IDamageable
             return;
 
         // Increase irritation level by damage amount scaled with irritation multiplier
-        irritationLevel += _amount * irrtationMultiplier;
+        irritationLevel += _amount * irritationMultiplier;
 
         // Clamp irritation level to a maximum of 1
         irritationLevel = Mathf.Min(1f, irritationLevel);

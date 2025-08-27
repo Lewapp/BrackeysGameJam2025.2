@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab; // Prefab of the bullet to spawn when shooting
     [SerializeField] private Transform spawnPoint;    // Point from which the bullet will be instantiated
     [SerializeField] private WeaponStats stats;       // Contains stats for the weapon
+    [SerializeField] private LayerMask ignoreLayer;   // Layers fo the raycast to ignore
     #endregion
 
     #region Private Variables
@@ -48,7 +49,7 @@ public class Weapon : MonoBehaviour
         Vector3 _direction = Vector3.zero;
 
         // Perform raycast to see if the bullet should target a hit point
-        if (Physics.Raycast(_ray, out RaycastHit hit, 1000f))
+        if (Physics.Raycast(_ray, out RaycastHit hit, 1000f, ~ignoreLayer))
         {
             // Calculate normalised direction from spawn point to hit point
             _direction = (hit.point - spawnPoint.position).normalized;
