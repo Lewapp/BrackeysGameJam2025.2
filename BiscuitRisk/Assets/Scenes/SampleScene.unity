@@ -467,6 +467,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1697633452}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseReward
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RiskRewardScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 214972141}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7012013897235406187, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
       propertyPath: m_Color.b
       value: 0.61960787
@@ -511,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &217747973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -677,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &254962683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1202,6 +1226,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1697633452}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseRisk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RiskRewardScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 576981217}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1485,7 +1541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &733790452
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2129,6 +2185,30 @@ PrefabInstance:
     - target: {fileID: 3248854387932143390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1697633452}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseReward
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RiskRewardScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1068813275}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7012013897235406187, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
       propertyPath: m_Color.b
@@ -3074,6 +3154,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1697633452}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseRisk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RiskRewardScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1646893190}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3615,7 +3727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1729038954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3865,6 +3977,30 @@ PrefabInstance:
     - target: {fileID: 3248854387932143390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1697633452}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseReward
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RiskRewardScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1779029116}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7012013897235406187, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
       propertyPath: m_Color.b
@@ -4336,6 +4472,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1697633452}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseRisk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RiskRewardScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1192972283351550727}
+    - target: {fileID: 5656943218501706390, guid: 904bb2c788473ee46b7b58c846f36059, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4405,7 +4573,7 @@ PrefabInstance:
       objectReference: {fileID: 1491424900}
     - target: {fileID: 971838558590889366, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_VersionIndex
-      value: 4331
+      value: 4337
       objectReference: {fileID: 0}
     - target: {fileID: 1678024837004699748, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_IsActive
@@ -4417,7 +4585,7 @@ PrefabInstance:
       objectReference: {fileID: 1886251878}
     - target: {fileID: 2469594840208173140, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_VersionIndex
-      value: 7088
+      value: 7094
       objectReference: {fileID: 0}
     - target: {fileID: 2800369240425147923, guid: ee07992edf7e67e48b0c50765a0ce5de, type: 3}
       propertyPath: m_Name
