@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 100
-  maxHealth: 100
+  characterInfo: {fileID: 11400000, guid: b9dc28fd70c63fb4487b39a56d16bbfe, type: 2}
 --- !u!114 &6348015311577215164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   willResetAfterCooldown: 1
   preIrritationFocus: {fileID: 0}
   irritationLevel: 0
-  irrtationMultiplier: 0.04
+  irritationMultiplier: 0.02
   irritationCooldownPower: 0.05
   resetCooldownThreshold: 0.2
 --- !u!114 &8210987301710761696
@@ -124,8 +124,7 @@ MonoBehaviour:
   rightCannon: {fileID: 2201385455667709550}
   laserBullet: {fileID: 8940097753998920163, guid: 2af1934b0c028284aa9431acee23da13, type: 3}
   shootingDistance: 9
-  fireRate: 2
-  laserSpeed: 5
+  enemyInfo: {fileID: 11400000, guid: b9dc28fd70c63fb4487b39a56d16bbfe, type: 2}
 --- !u!195 &569833088945897948
 NavMeshAgent:
   m_ObjectHideFlags: 0

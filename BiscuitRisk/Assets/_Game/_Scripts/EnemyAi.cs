@@ -11,8 +11,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] private Transform rightCannon; // Right cannon transform for shooting
     [SerializeField] private GameObject laserBullet; // Laser bullet prefab
     [SerializeField] private float shootingDistance; // Distance at which enemy starts shooting
-    [SerializeField] private float fireRate;        // Time between shots
-    [SerializeField] private float laserSpeed = 5;  // Speed of the laser projectile
+    [SerializeField] private WorldStats enemyInfo;
     #endregion
 
     #region Private Variables
@@ -42,7 +41,7 @@ public class EnemyAi : MonoBehaviour
         timeSinceLastShot += Time.deltaTime;
 
         // Check if enemy can shoot
-        if (timeSinceLastShot >= fireRate && Vector3.Distance(transform.position, seeker.target.position) <= shootingDistance)
+        if (timeSinceLastShot >= enemyInfo.baseFireRate && Vector3.Distance(transform.position, seeker.target.position) <= shootingDistance)
         {
             ShootAtTarget();      // Fire lasers from both cannons
             timeSinceLastShot = 0f; // Reset shot timer
@@ -79,7 +78,7 @@ public class EnemyAi : MonoBehaviour
         // Apply velocity along forward direction
         Rigidbody _rb = _laser.GetComponent<Rigidbody>();
         if (_rb)
-            _rb.linearVelocity = _laser.transform.forward * laserSpeed;
+            _rb.linearVelocity = _laser.transform.forward * enemyInfo.baseProjectileSpeed;
     }
     #endregion
 }

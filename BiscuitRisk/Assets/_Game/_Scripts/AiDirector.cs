@@ -36,6 +36,10 @@ public class AiDirector : MonoBehaviour
     [SerializeField] private float switchPercentage = 0.3f;         // Percentage chance for an enemy to switch focus during balancing
     [SerializeField] private int maxCandidatesPerCheck = 5;         // Maximum number of candidates considered per balancing check
 
+    [Header("Risk and Reward Settings")]
+    [SerializeField] private RiskRewardScreen riskRewardScreen;
+    [SerializeField] private int waveRrScreenTrigger = 3;
+
     #endregion
 
     #region Private Variables
@@ -261,13 +265,15 @@ public class AiDirector : MonoBehaviour
             // If all active enemies are cleared, the wave is finished
             if (activeEnemies.Count <= 0)
             {
-                // Delay
-
                 // Start wave
                 spawnTimeRange.y *= spawnTimeDecrease;
                 spawnsPerWave *= spawnsPerWaveIncrease;
                 waveSpawnsLeft = (int)spawnsPerWave;
                 currentWave++;
+
+                // Show Risk Reward Screen
+                if ((currentWave % waveRrScreenTrigger) == 0)
+                    riskRewardScreen.enabled = true;
 
             }
 

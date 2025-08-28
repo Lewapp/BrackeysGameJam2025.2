@@ -3447,7 +3447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 6912167583152407621}
   healthTxt: {fileID: 275465722509386710}
-  maxHealth: 100
+  playerInfo: {fileID: 11400000, guid: 24076a2566a077443b011fca13cb452c, type: 2}
   currentHealth: 100
 --- !u!1 &2830819272694167963
 GameObject:

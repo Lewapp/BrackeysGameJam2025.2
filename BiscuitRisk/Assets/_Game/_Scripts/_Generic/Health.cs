@@ -9,13 +9,13 @@ public class Health : MonoBehaviour, IDamageable
 {
     #region Inspector Variables
     [SerializeField] private float currentHealth; // Current health value of the object
-    [SerializeField] private float maxHealth;     // Maximum health the object can have
+    [SerializeField] private WorldStats characterInfo;
     #endregion
 
     #region Unity Callbacks
     private void Start()
     {
-        currentHealth = maxHealth; // Set current health to full
+        currentHealth = characterInfo.baseMaxHealth; // Set current health to full
         CheckLife();               // Ensure object is alive
     }
     #endregion

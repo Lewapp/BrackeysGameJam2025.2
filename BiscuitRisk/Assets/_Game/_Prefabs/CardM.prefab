@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf5a9bd342898a478099349a949d808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textInfo: {fileID: 1335848159337997746}
+  effects: []
+  chosenEffect: {fileID: 0}
 --- !u!1 &4029152338666303804
 GameObject:
   m_ObjectHideFlags: 0

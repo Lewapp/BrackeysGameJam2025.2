@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class RiskRewardScreen : MonoBehaviour
 {
-    [SerializeField] private GameObject[] riskCards; 
-    [SerializeField] private GameObject[] rewardCards;
+    [SerializeField] private RiskRewards[] riskCards; 
+    [SerializeField] private RiskRewards[] rewardCards;
+    
 
     private void Start()
     {
@@ -32,7 +33,6 @@ public class RiskRewardScreen : MonoBehaviour
         {
             _child.gameObject.SetActive(false);
         }
-
         // Resume game and lock cursor
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
@@ -50,12 +50,22 @@ public class RiskRewardScreen : MonoBehaviour
         enabled = false;
     }
 
-    private void SetActiveCards(bool _enable, GameObject[] _cards)
+    private void SetActiveCards(bool _enable, RiskRewards[] _cards)
     {
-        Debug.Log(_enable);
-        foreach (GameObject _card in _cards)
+        foreach (RiskRewards _card in _cards)
         {
-            _card.SetActive(_enable);
+            if (_card == null)
+            {
+                Debug.LogError("A null card has entered the SetActiveCards loop");
+                continue;
+            }
+
+            _card.gameObject.SetActive(_enable);
+
+            if (_enable)
+            {
+                _card.PickEffect();
+            }
         }
     }
 }

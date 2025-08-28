@@ -1,68 +1,30 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class RiskRewards : MonoBehaviour
 {
-    public enum Risks
-    { 
-        None,
-        LowHealth,
-        EnemyFireRate,
-        EnemyDamage,
-    }
+    [SerializeField] private TextMeshProUGUI textInfo;
+    [SerializeField] private RiskRewardData[] effects;
+    [SerializeField] private RiskRewardData chosenEffect;
 
-    public enum Rewards
+    public void PickEffect()
     {
-        None,
-        MaxHealthInc,
-        HealthRegenInc,
-        MoveSpeedInc,
-    }
-
-    [SerializeField] private bool isRisk;
-    [SerializeField] private Risks risk;
-    [SerializeField] private Rewards reward;
-
-    public void SetCard()
-    {
-        if (isRisk)
-        {
-            risk = HelperClass.GetRandomEnumValue<Risks>();
+        if (effects.Length <= 0)
             return;
-        }
 
-        reward = HelperClass.GetRandomEnumValue<Rewards>();
+        int _effectIndex = UnityEngine.Random.Range(0, effects.Length);
+        chosenEffect = effects[_effectIndex];
+        if (textInfo)
+            textInfo.text = effects[_effectIndex].description;
     }
 
-    public void Activate()
+    public void ApplyEffect()
     {
-        if (isRisk)
-            ApplyRisk(risk);
-        else
-            ApplyReward(reward);
+        // Apply Effect
     }
 
-    private void ApplyRisk(Risks risk)
-    {
-        switch (risk)
-        {
-            case Risks.LowHealth:
-                Debug.Log("Apply Low Health debuff");
-                break;
-            default:
-                break;
-        }
-    }
 
-    private void ApplyReward(Rewards reward)
-    {
-        switch (reward)
-        {
-            case Rewards.MaxHealthInc:
-                Debug.Log("Increase Max Health");
-                break;
-            default:
-                break;
-        }
-    }
+
+
 }

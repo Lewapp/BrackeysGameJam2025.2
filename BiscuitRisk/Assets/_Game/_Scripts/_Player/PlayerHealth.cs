@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     #region Inspector Variables
     [SerializeField] private DeathScreenUI deathScreen; // Reference to death screen UI
     [SerializeField] private TextMeshProUGUI healthTxt; // UI element to display health
-    [SerializeField] private float maxHealth;           // Maximum player health
+    [SerializeField] private WorldStats playerInfo;
     [SerializeField] private float currentHealth;       // Current player health
     #endregion
 
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         // Ensure death screen is hidden on start
         deathScreen?.SetActiveDeathScreen(false);
-        currentHealth = maxHealth; // Initialise health
+        currentHealth = playerInfo.baseMaxHealth; // Initialise health
         CheckHealth(); // Update UI
     }
     #endregion

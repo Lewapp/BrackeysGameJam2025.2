@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     #endregion
 
     #region Inspector Variables
-    [SerializeField] private ProjectileStats stats; // Configurable stats for this projectile
+    [SerializeField] private WorldStats characterInfo; // Configurable stats for this projectile
     [SerializeField] private LayerMask ignoreLayer; // Collision Layers to ignore
     #endregion
 
@@ -24,12 +24,10 @@ public class Projectile : MonoBehaviour
         // Attempt to get IDamageable component from collided object
         foreach (var _damageable in collision.gameObject.GetComponents<IDamageable>())
         {
-            _damageable.TakeDamage(stats.damage, sourceObject); // Apply damage
+            _damageable.TakeDamage(characterInfo.baseDamage, sourceObject); // Apply damage
         }
 
-        // Destroy projectile if flagged to do so on collision
-        if (stats.destroyOnCollision)
-            Destroy(gameObject);
+        Destroy(gameObject);
     }
     #endregion
 
